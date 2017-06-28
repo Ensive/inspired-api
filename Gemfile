@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.1.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -23,11 +23,15 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+# active admin
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise', '> 4.x'
+
 # spree commerce
-gem 'spree_core', '~> 3.2.0'
-gem 'spree_backend', '~> 3.2.0'
-gem 'spree_api', '~> 3.2.0'
-gem 'spree_auth_devise', '~> 3.2'
+# gem 'spree_core', '~> 3.2.0'
+# gem 'spree_backend', '~> 3.2.0'
+# gem 'spree_api', '~> 3.2.0'
+# gem 'spree_auth_devise', '~> 3.2.0'
 
 # just for reference
 # gem 'spree', '~> 3.2.0'

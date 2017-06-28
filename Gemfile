@@ -28,6 +28,8 @@ gem 'devise', '> 4.x'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 
+gem 'responders'
+
 # spree commerce
 # gem 'spree_core', '~> 3.2.0'
 # gem 'spree_backend', '~> 3.2.0'

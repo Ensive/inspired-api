@@ -251,6 +251,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.2)
+  responders
   rspec-activemodel-mocks
   rspec-its
   rspec-rails

@@ -24,8 +24,9 @@ gem 'puma', '~> 3.7'
 # gem 'rack-cors'
 
 # active admin
-gem 'activeadmin', github: 'activeadmin'
 gem 'devise', '> 4.x'
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 
 # spree commerce
 # gem 'spree_core', '~> 3.2.0'

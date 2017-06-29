@@ -53,3 +53,4 @@ gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resour
 # misc
 gem 'responders'
 gem 'ancestry'
+gem 'olive_branch'

@@ -35,6 +35,9 @@ module InspiredApi
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
 
+    config.middleware.use OliveBranch::Middleware
+
+    # TODO: probably may cause security issues (vulnerability)
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'localhost:8080'

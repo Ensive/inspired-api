@@ -23,23 +23,6 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-# active admin
-gem 'devise', '> 4.x'
-gem 'activeadmin', github: 'activeadmin'
-gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
-
-gem 'responders'
-
-# spree commerce
-# gem 'spree_core', '~> 3.2.0'
-# gem 'spree_backend', '~> 3.2.0'
-# gem 'spree_api', '~> 3.2.0'
-# gem 'spree_auth_devise', '~> 3.2.0'
-
-# just for reference
-# gem 'spree', '~> 3.2.0'
-# gem 'spree_gateway', '~> 3.2'
-
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -61,3 +44,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# active admin
+gem 'devise', '> 4.x'
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
+
+# misc
+gem 'responders'
+gem 'ancestry'

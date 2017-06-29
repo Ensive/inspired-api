@@ -1,11 +1,14 @@
 ActiveAdmin.register Product do
   permit_params :sku, :title, :description, :image,
                 :in_stock, :available, :new,
-                :discount, :discount_available, :price, :material, :color_ids => []
+                :discount, :discount_available,
+                :price, :material, :color_ids => []
 
   index do
     selectable_column
-    column :title
+    column :title do |product|
+      link_to product.title, [:admin, product]
+    end
     column :image
     column :in_stock
     column :available
@@ -13,6 +16,7 @@ ActiveAdmin.register Product do
     column :discount
     column :discount_available
     column :price
+    # column :colors
     actions
   end
 
@@ -29,7 +33,7 @@ ActiveAdmin.register Product do
       f.input :discount_available
       f.input :price
       f.input :material
-      f.input :colors
+      f.input :colors, as: :check_boxes
     end
     f.actions
   end

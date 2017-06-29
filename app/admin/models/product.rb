@@ -1,7 +1,7 @@
 ActiveAdmin.register Product do
   permit_params :sku, :title, :description, :image,
                 :in_stock, :available, :new,
-                :discount, :discount_available, :price
+                :discount, :discount_available, :price, :material
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

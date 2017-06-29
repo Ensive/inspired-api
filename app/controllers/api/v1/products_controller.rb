@@ -2,7 +2,7 @@ class Api::V1::ProductsController < Api::V1::BaseController
 
   # GET /products.json
   def index
-    respond_with Product.all.order('created_at DESC')
+    respond_with Product.all.includes(:comments).order('created_at DESC')
   end
 
   # GET /products/1.json

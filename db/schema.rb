@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629172801) do
+ActiveRecord::Schema.define(version: 20170629204005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20170629172801) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "colors", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.bigint "product_id"
     t.string "author", default: "Anonymous", null: false
@@ -60,6 +64,13 @@ ActiveRecord::Schema.define(version: 20170629172801) do
     t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_comments_on_ancestry"
     t.index ["product_id"], name: "index_comments_on_product_id"
+  end
+
+  create_table "product_colors", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "color_id"
+    t.index ["color_id"], name: "index_product_colors_on_color_id"
+    t.index ["product_id"], name: "index_product_colors_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|

@@ -1,7 +1,38 @@
 ActiveAdmin.register Product do
   permit_params :sku, :title, :description, :image,
                 :in_stock, :available, :new,
-                :discount, :discount_available, :price, :material
+                :discount, :discount_available, :price, :material, :color_ids => []
+
+  index do
+    selectable_column
+    column :title
+    column :image
+    column :in_stock
+    column :available
+    column :new
+    column :discount
+    column :discount_available
+    column :price
+    actions
+  end
+
+  form do |f|
+    f.inputs 'Product Details' do
+      f.input :sku
+      f.input :title
+      f.input :description
+      f.input :image
+      f.input :in_stock
+      f.input :available
+      f.input :new
+      f.input :discount
+      f.input :discount_available
+      f.input :price
+      f.input :material
+      f.input :colors
+    end
+    f.actions
+  end
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

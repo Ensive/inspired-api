@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628121239) do
+ActiveRecord::Schema.define(version: 20170629075756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,22 @@ ActiveRecord::Schema.define(version: 20170628121239) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "product_id"
+    t.string "author", default: "Anonymous", null: false
+    t.string "author_email"
+    t.string "author_ip"
+    t.text "body", null: false
+    t.bigint "stars", default: 0
+    t.boolean "approved", default: false, null: false
+    t.integer "rank", default: 0, null: false
+    t.string "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_comments_on_ancestry"
+    t.index ["product_id"], name: "index_comments_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "sku", limit: 25
     t.string "title", limit: 50, null: false
@@ -61,4 +77,5 @@ ActiveRecord::Schema.define(version: 20170628121239) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "products"
 end

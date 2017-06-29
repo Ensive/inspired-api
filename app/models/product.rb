@@ -1,11 +1,11 @@
 class Product < ApplicationRecord
-  # has_many :comments, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # has_many :order_items
 
   # before_destroy :ensure_not_referenced
 
   validates :sku, :title, :description, :price, presence: true
-  validates :price, numericality: { greater_than_or_equal_to:  0.01 }
+  validates :price, numericality: {greater_than_or_equal_to: 0.01}
   validates :title, uniqueness: true
   validates :image, allow_blank: true, format: {
     with: %r{\.(gif|jpg|png)\Z}i,
@@ -14,6 +14,13 @@ class Product < ApplicationRecord
 
   def to_s
     title
+  end
+
+  # TODO: find a better way
+  def as_json(options = {})
+    product = super(options)
+    product[:comments] = self.comments.as_json(except: [:product_id, :author_ip])
+    product
   end
 
   private

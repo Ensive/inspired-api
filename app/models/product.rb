@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :product_colors
   has_many :colors, through: :product_colors
+  has_many :product_sizes
+  has_many :sizes, through: :product_sizes
   # has_many :order_items
 
   # before_destroy :ensure_not_referenced
@@ -23,6 +25,7 @@ class Product < ApplicationRecord
     product = super(options)
     product[:comments] = self.comments.as_json(except: [:product_id, :author_ip])
     product[:colors] = self.colors
+    product[:sizes] = self.sizes
     product
   end
 

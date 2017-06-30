@@ -2,7 +2,8 @@ ActiveAdmin.register Product do
   permit_params :sku, :title, :description, :image,
                 :in_stock, :available, :new,
                 :discount, :discount_available,
-                :price, :material, :color_ids => []
+                :price, :material, :color_ids => [],
+                :size_ids => []
 
   index do
     selectable_column
@@ -16,7 +17,12 @@ ActiveAdmin.register Product do
     column :discount
     column :discount_available
     column :price
-    # column :colors
+    column :sizes do |product|
+      product.sizes.map { |size| size.name }.join(', ')
+    end
+    column :colors do |product|
+      product.colors.map { |color| color.name.capitalize }.join(', ')
+    end
     actions
   end
 
@@ -34,6 +40,7 @@ ActiveAdmin.register Product do
       f.input :price
       f.input :material
       f.input :colors, as: :check_boxes
+      f.input :sizes, as: :check_boxes
     end
     f.actions
   end

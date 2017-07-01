@@ -6,17 +6,24 @@ ActiveAdmin.register Product do
                 :size_ids => []
 
   index do
-    selectable_column
-    column :title do |product|
-      link_to product.title, [:admin, product]
+    # selectable_column
+    column 'Image' do |product|
+      img_url = "http://localhost:8080/public/img/products/#{product.image}"
+      link_to [:admin, product] do
+        image_tag img_url, class: 'product-img'
+      end
     end
-    column :image
+    column :title do |product|
+      link_to product.title, [:edit_admin, product]
+    end
     column :in_stock
     column :available
     column :new
     column :discount
     column :discount_available
-    column :price
+    column 'Price' do |product|
+      span "#{product.price.to_i} грн", class: 'product-price'
+    end
     column :sizes do |product|
       product.sizes.map { |size| size.name }.join(', ')
     end

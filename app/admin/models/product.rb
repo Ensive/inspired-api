@@ -28,7 +28,10 @@ ActiveAdmin.register Product do
       product.sizes.map { |size| size.name }.join(', ')
     end
     column :colors do |product|
-      product.colors.map { |color| color.name.capitalize }.join(', ')
+      product.colors.map do |color|
+        color.value
+        # span nil, style: "background-color: #{color.value}", class: 'color-block mod-column'
+      end.join('')
     end
     actions
   end
@@ -46,7 +49,7 @@ ActiveAdmin.register Product do
       f.input :discount_available
       f.input :price
       f.input :material
-      f.input :colors, as: :check_boxes
+      f.input :colors, as: :check_boxes, collection: Color.all.collect { |color| [color.value, color.id] }, input_html: { class: 'js-render-color' }
       f.input :sizes, as: :check_boxes
     end
     f.actions

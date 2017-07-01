@@ -7,3 +7,17 @@
   max-width: 120px;
   width: 100%;
 }
+
+// color-block
+.color-block {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 5px 5px;
+  border: 1px solid #ccc;
+
+  &.mod-column {
+    margin: 0 5px 0 0;
+  }
+}
